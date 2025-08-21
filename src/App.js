@@ -1,4 +1,4 @@
-import PostList from './api/postAPI';
+import PostList from "./componets/postList";
 
 function App() {
   return (
