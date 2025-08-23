@@ -1,44 +1,43 @@
 import React from "react";
 
-function HomePage() {
+export default function HomePage() {
   return (
-    <div className="container mx-auto p-4">
+    <div className="min-h-screen flex flex-col">
       {/* Header */}
-      <header className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold">My Blog</h1>
-        {/* 프로필 아이콘 */}
-        <div className="w-10 h-10 bg-gray-300 rounded-full"></div>
+      <header className="bg-white shadow-md px-6 py-4 flex justify-between items-center">
+        <h1 className="text-2xl font-bold text-blue-600">My Blog</h1>
+        <nav className="hidden md:flex space-x-6">
+          <a href="/" className="text-gray-700 hover:text-blue-600">홈</a>
+          <a href="/create" className="text-gray-700 hover:text-blue-600">글쓰기</a>
+          <a href="/profile" className="text-gray-700 hover:text-blue-600">내정보</a>
+        </nav>
+        {/* 모바일 메뉴 버튼 */}
+        <button className="md:hidden text-gray-700">☰</button>
       </header>
 
-      {/* PC 레이아웃 */}
-      <div className="hidden md:flex gap-4">
-        {/* Sidebar */}
-        <aside className="w-1/4 bg-gray-100 p-4 rounded-lg shadow">
-          <ul>
-            <li className="mb-2">홈</li>
-            <li className="mb-2">내 글</li>
-            <li>설정</li>
-          </ul>
-        </aside>
+      {/* Body */}
+      <main className="flex-grow p-6 bg-gray-50">
+        <h2 className="text-xl font-semibold mb-4">최신 글</h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {/* 카드 예시 */}
+          <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition">
+            <h3 className="text-lg font-bold mb-2">첫 번째 글</h3>
+            <p className="text-gray-600">이곳은 글 미리보기 텍스트가 들어갑니다.</p>
+            <a href="/post/1" className="text-blue-600 text-sm mt-2 inline-block">자세히 보기 →</a>
+          </div>
 
-        {/* Posts List */}
-        <main className="w-3/4 grid grid-cols-2 gap-4">
-          <div className="p-4 bg-white rounded-lg shadow">게시글 1</div>
-          <div className="p-4 bg-white rounded-lg shadow">게시글 2</div>
-          <div className="p-4 bg-white rounded-lg shadow">게시글 3</div>
-        </main>
-      </div>
+          <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition">
+            <h3 className="text-lg font-bold mb-2">두 번째 글</h3>
+            <p className="text-gray-600">이곳은 글 미리보기 텍스트가 들어갑니다.</p>
+            <a href="/post/2" className="text-blue-600 text-sm mt-2 inline-block">자세히 보기 →</a>
+          </div>
+        </div>
+      </main>
 
-      {/* 모바일 레이아웃 */}
-      <div className="md:hidden">
-        <main className="flex flex-col gap-4">
-          <div className="p-4 bg-white rounded-lg shadow">게시글 1</div>
-          <div className="p-4 bg-white rounded-lg shadow">게시글 2</div>
-          <div className="p-4 bg-white rounded-lg shadow">게시글 3</div>
-        </main>
-      </div>
+      {/* Footer */}
+      <footer className="bg-white shadow-inner py-4 text-center text-gray-500 text-sm">
+        © 2025 QC03. All rights reserved.
+      </footer>
     </div>
   );
 }
-
-export default HomePage;
