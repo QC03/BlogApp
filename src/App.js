@@ -1,11 +1,25 @@
-// import PostList from "./componets/postList";
+import PostDetail from "./componets/postDetail";
+import CreatePost from "./componets/createPost";
+import EditPost from "./componets/editPost";
 import HomePage from "./pages/HomePage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="p-10 bg-gray-100 text-2xl text-green-600">
-      <HomePage />
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/create" element={<CreatePost />} />
+          <Route path="/edit/:id" element={<EditPost />} />
+          <Route path="/posts/:id" element={<PostDetail />} />
+
+          {/* 예외는 메인페이지 */}
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
+    
   );
 }
 

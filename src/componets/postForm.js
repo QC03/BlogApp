@@ -13,9 +13,11 @@ function PostForm({ onSubmit, initialData, onCancel }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ title, content });
-    setTitle("");
-    setContent("");
+    if (onSubmit) {
+      onSubmit({ title, content });
+      setTitle("");
+      setContent("");
+    }
   };
 
   return (
@@ -34,7 +36,11 @@ function PostForm({ onSubmit, initialData, onCancel }) {
         required
       />
       <button type="submit">저장</button>
-      {onCancel && <button onClick={onCancel}>취소</button>}
+      {onCancel && (
+        <button type="button" onClick={onCancel}>
+          취소
+        </button>
+      )}
     </form>
   );
 }
