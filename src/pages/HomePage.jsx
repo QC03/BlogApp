@@ -1,5 +1,5 @@
 import React from "react";
-import PostList from "../componets/postList";
+import PostList from "../componets/PostList";
 import { useState } from "react";
 
 export default function HomePage() {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getPosts, deletePost } from "../api/postAPI";
+import { getPosts, deletePost } from "../api/PostAPI";
 import { Link, useNavigate } from "react-router-dom";
 
 function PostList() {

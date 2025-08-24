@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getPost, deletePost } from "../api/postAPI";
+import { getPost, deletePost } from "../api/PostAPI";
 
 function PostDetail() {
   const { id } = useParams(); // URL에서 /posts/:id 값 가져옴

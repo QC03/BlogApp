@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import PostForm from "./postForm";
-import { getPost, updatePost } from "../api/postAPI";
+import PostForm from "./PostForm";
+import { getPost, updatePost } from "../api/PostAPI";
 
 function EditPost() {
   const { id } = useParams();

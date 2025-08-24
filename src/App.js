@@ -1,6 +1,6 @@
-import PostDetail from "./componets/postDetail";
-import CreatePost from "./componets/createPost";
-import EditPost from "./componets/editPost";
+import PostDetail from "./componets/PostDetail";
+import CreatePost from "./componets/CreatePost";
+import EditPost from "./componets/EditPost";
 import HomePage from "./pages/HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
