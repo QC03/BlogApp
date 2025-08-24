@@ -1,37 +1,45 @@
 import React from "react";
+import PostList from "../componets/postList";
+import { useState } from "react";
 
 export default function HomePage() {
+
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen flex flex-col">
+
       {/* Header */}
       <header className="bg-white shadow-md px-6 py-4 flex justify-between items-center">
         <h1 className="text-2xl font-bold text-blue-600">My Blog</h1>
+
+        {/* PC 메뉴 */}
         <nav className="hidden md:flex space-x-6">
           <a href="/" className="text-gray-700 hover:text-blue-600">홈</a>
           <a href="/create" className="text-gray-700 hover:text-blue-600">글쓰기</a>
           <a href="/profile" className="text-gray-700 hover:text-blue-600">내정보</a>
         </nav>
+
         {/* 모바일 메뉴 버튼 */}
-        <button className="md:hidden text-gray-700">☰</button>
+        <button
+          className="md:hidden text-gray-700 focus:outline-none"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >☰</button>
+
       </header>
 
-      {/* Body */}
-      <main className="flex-grow p-6 bg-gray-50">
-        <h2 className="text-xl font-semibold mb-4">최신 글</h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {/* 카드 예시 */}
-          <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition">
-            <h3 className="text-lg font-bold mb-2">첫 번째 글</h3>
-            <p className="text-gray-600">이곳은 글 미리보기 텍스트가 들어갑니다.</p>
-            <a href="/post/1" className="text-blue-600 text-sm mt-2 inline-block">자세히 보기 →</a>
-          </div>
+      {/* 모바일 메뉴 (토글) */}
+        {menuOpen && (
+            <nav className="md:hidden bg-gray-100 px-6 py-2 flex flex-col space-y-2">
+                <a href="/" className="text-gray-700 hover:text-blue-600">홈</a>
+                <a href="/create" className="text-gray-700 hover:text-blue-600">글쓰기</a>
+                <a href="/profile" className="text-gray-700 hover:text-blue-600">내정보</a>
+            </nav>
+        )}
 
-          <div className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition">
-            <h3 className="text-lg font-bold mb-2">두 번째 글</h3>
-            <p className="text-gray-600">이곳은 글 미리보기 텍스트가 들어갑니다.</p>
-            <a href="/post/2" className="text-blue-600 text-sm mt-2 inline-block">자세히 보기 →</a>
-          </div>
-        </div>
+      {/* Main Content */}
+      <main className="flex-grow p-6 bg-gray-50">
+        <PostList />
       </main>
 
       {/* Footer */}
