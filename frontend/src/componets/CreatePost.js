@@ -17,7 +17,6 @@ function CreatePost() {
 
   return (
     <div>
-      <h1>새 게시글 작성</h1>
       <PostForm 
         onSubmit={handleCreatePost} 
         onCancel={() => navigate("/")} 
